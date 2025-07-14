@@ -1,8 +1,4 @@
-app.use(cors({
-  origin: process.env.FRONTEND_URL || '*', // Allow your frontend URL
-  methods: ['GET', 'POST', 'PUT', 'DELETE'],
-  credentials: true, // Allow cookies if needed
-}));
+
 const express = require('express');
 const cors = require('cors');
 const dotenv = require('dotenv');
@@ -14,7 +10,11 @@ dotenv.config();
 const app: Express = express(); // Use imported Express type
 const PORT: string|number=process.env.PORT||8000;
 
-app.use(cors());
+app.use(cors({
+  origin: process.env.FRONTEND_URL || '*', // Allow your frontend URL
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  credentials: true, // Allow cookies if needed
+}));
 app.use(express.json());
 
 interface GeminiRequestBody {
