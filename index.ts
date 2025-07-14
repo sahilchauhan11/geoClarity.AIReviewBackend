@@ -9,7 +9,10 @@ dotenv.config();
 const app: Express = express(); // Use imported Express type
 const PORT: number = 8000;
 
-app.use(cors());
+app.use(cors({
+  origin: process.env.FRONTEND_URL,
+  credentials: true 
+}));
 app.use(express.json());
 
 interface GeminiRequestBody {
