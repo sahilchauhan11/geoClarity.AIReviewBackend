@@ -7,7 +7,7 @@ import { Request, Response, Express } from 'express'; // Import Express type exp
 dotenv.config();
 
 const app: Express = express(); // Use imported Express type
-const PORT: number = 8000;
+const PORT: string|number=process.env.PORT||8000;
 
 app.use(cors({
   origin: process.env.FRONTEND_URL,
